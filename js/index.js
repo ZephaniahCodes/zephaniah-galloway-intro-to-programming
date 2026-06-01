@@ -53,7 +53,7 @@ messageForm.addEventListener("submit", function(event) {
 });
 // Lesson 9 - GitHub API Fetch
 
-const projectSection = document.getElementById("projects");
+const projectSection = document.getElementById("Projects");
 const projectList = projectSection.querySelector("ul");
 
 fetch("https://api.github.com/users/ZephaniahCodes/repos")
