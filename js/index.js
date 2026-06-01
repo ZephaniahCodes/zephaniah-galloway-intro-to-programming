@@ -51,3 +51,25 @@ messageForm.addEventListener("submit", function(event) {
 
     messageForm.reset();
 });
+// Lesson 9 - GitHub API Fetch
+
+const projectSection = document.getElementById("projects");
+const projectList = projectSection.querySelector("ul");
+
+fetch("https://api.github.com/users/ZephaniahCodes/repos")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(repositories) {
+    console.log(repositories);
+
+    for (let i = 0; i < repositories.length; i++) {
+      let project = document.createElement("li");
+      project.innerText = repositories[i].name;
+      projectList.appendChild(project);
+    }
+  })
+  .catch(function(error) {
+    console.error("Error fetching repositories:", error);
+    projectList.innerText = "Unable to load projects at this time.";
+  });
