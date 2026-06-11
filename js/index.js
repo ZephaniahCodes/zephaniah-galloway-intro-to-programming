@@ -12,7 +12,7 @@ footer.appendChild(copyright);
 // my skills
 const skills = ["UX Design", "HTML", "CSS", "JavaScript", "Figma", "GitHub", "Data Analysis", "Digital Strategy"];
 
-const skillsSection = document.querySelector("#Skills");
+const skillsSection = document.querySelector("#skills");
 const skillsList = skillsSection.querySelector("ul");
 
 for (let i = 0; i < skills.length; i++) {
