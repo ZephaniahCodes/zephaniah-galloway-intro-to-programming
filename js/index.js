@@ -1,7 +1,5 @@
 //footer
-const body = document.querySelector("body");
-const footer = document.createElement("footer");
-body.appendChild(footer);
+const footer = document.querySelector("footer");
 
 const today = new Date();
 const thisYear = today.getFullYear();
@@ -12,7 +10,7 @@ footer.appendChild(copyright);
 // my skills
 const skills = ["UX Design", "HTML", "CSS", "JavaScript", "Figma", "GitHub", "Data Analysis", "Digital Strategy"];
 
-const skillsSection = document.querySelector("#Skills");
+const skillsSection = document.querySelector("#skills");
 const skillsList = skillsSection.querySelector("ul");
 
 for (let i = 0; i < skills.length; i++) {
@@ -26,7 +24,7 @@ const messageForm = document.querySelector("form[name='leave_message']");
 messageForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const usersName = event.target.usersName.value;
+    const usersName = event.target.usersName.value; 
     const usersEmail = event.target.usersEmail.value;
     const usersMessage = event.target.usersMessage.value;
 
@@ -51,3 +49,25 @@ messageForm.addEventListener("submit", function(event) {
 
     messageForm.reset();
 });
+// Lesson 9 - GitHub API Fetch
+
+const projectSection = document.getElementById("Projects");
+const projectList = projectSection.querySelector("ul");
+
+fetch("https://api.github.com/users/ZephaniahCodes/repos")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(repositories) {
+    console.log(repositories);
+
+    for (let i = 0; i < repositories.length; i++) {
+      let project = document.createElement("li");
+      project.innerText = repositories[i].name;
+      projectList.appendChild(project);
+    }
+  })
+  .catch(function(error) {
+    console.error("Error fetching repositories:", error);
+    projectList.innerText = "Unable to load projects at this time.";
+  });
