@@ -183,3 +183,9 @@ form button {
         padding: 16px;
     }
 }
+
+#error {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
