@@ -51,3 +51,22 @@ messageForm.addEventListener("submit", function(event) {
 
     messageForm.reset();
 });
+// GitHub Repos
+const projectsList = document.querySelector("#Projects ul");
+
+fetch("https://api.github.com/users/ZephaniahCodes/repos")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(repositories) {
+        console.log(repositories);
+        for (let i = 0; i < repositories.length; i++) {
+            const li = document.createElement("li");
+            li.innerText = repositories[i].name;
+            projectsList.appendChild(li);
+        }
+    })
+    .catch(function(error) {
+        projectsList.innerHTML = "<li>Unable to load projects at this time.</li>";
+        console.error(error);
+    });
