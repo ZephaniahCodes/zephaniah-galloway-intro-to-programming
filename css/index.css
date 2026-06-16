@@ -189,3 +189,19 @@ form button {
     margin-top: 10px;
     font-weight: bold;
 }
+
+/* Projects */
+#Projects ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#Projects li {
+    background-color: #C0392B;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 4px;
+}
